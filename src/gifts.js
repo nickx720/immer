@@ -1,4 +1,6 @@
 import produce from "immer"
+import { allUsers, getCurrentUser } from "./misc/users"
+import defaultGifts from "./misc/gifts.json"
 
 
 export function addGift(state, id, description, image) {
@@ -24,4 +26,12 @@ export function toggleReservation(state, giftId) {
           : gift.reservedBy
   })
 
+}
+
+export function getInitialState() {
+  return {
+    users: allUsers,
+    currentUser: getCurrentUser(),
+    gifts: defaultGifts
+  }
 }
